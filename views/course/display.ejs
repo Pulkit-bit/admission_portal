@@ -1,0 +1,43 @@
+<%- include('../links.ejs') %>
+<%- include('../header.ejs') %>
+<%- include('../videspart.ejs') %>
+
+
+<h1 class="bg-info text-center mt-5">Course Display</h1>
+<div class="container">
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Status</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterating through the items in 'c' array -->
+             <% c.forEach((item) => { %>
+                <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.email %></td>
+                    <td><%= item.course %></td>
+                    <td><%= item.status %></td>
+                    <td><%= item.comment %></td>
+                    <td>
+                        <a href="/courseView/<%= item.id %>" class="btn btn-success">View</a>
+                        <a href="/courseEdit/<%= item.id %>" class="btn btn-info">Edit</a>
+                        <a href="/courseDelete/<%= item.id %>" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            <%}) %>
+        </tbody>
+    </table>
+    
+    <a href="/home" class="btn btn-info">Back</a>
+</div>
+
+<%- include('../footer.ejs') %>

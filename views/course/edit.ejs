@@ -1,0 +1,95 @@
+<%- include('../links.ejs') %>
+<%- include('../header.ejs') %>
+<%- include('../videspart.ejs') %>
+
+
+<h1 class="bg-info text-center mt-5">Course Edit</h1>
+<div class="container">
+    <form action="/courseUpdate/<%= c.id  %>" method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label for="onlineEducationName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="onlineEducationName"
+                            name="name" value="<%= c.name %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="onlineEducationEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="onlineEducationEmail"
+                            name="email" value="<%= c.email %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="onlineEducationPhone" class="form-label">Phone
+                            Number</label>
+                        <input type="tel" value="<%= c.phone %>" class="form-control" id="onlineEducationPhone"
+                            name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="onlineEducationDob" class="form-label">DOB</label>
+                        <input type="date"  value="<%= c.dob %>" class="form-control" id="onlineEducationDob"
+                            name="dob" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="onlineEducationAddress" class="form-label">Address</label>
+                        <textarea class="form-control" id="onlineEducationAddress"name="address" rows="2" required>
+                          <%= c.address %>
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gender</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender"
+                                    id="onlineEducationGenderMale" value="male" required>
+                                <label class="form-check-label"
+                                    for="onlineEducationGenderMale">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender"
+                                    id="onlineEducationGenderFemale" value="female" required>
+                                <label class="form-check-label"
+                                    for="onlineEducationGenderFemale">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender"
+                                    id="onlineEducationGenderOther" value="other" required>
+                                <label class="form-check-label"
+                                    for="onlineEducationGenderOther">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="onlineEducationEducation"
+                            class="form-label">Education</label>
+                        <select class="form-select" id="onlineEducationEducation"
+                            name="education" required>
+                            <option value="" selected disabled>Select your education level
+                            </option>
+                            <option value="high_school">High School</option>
+                            <option value="associate">Associate's Degree</option>
+                            <option value="bachelor">Bachelor's Degree</option>
+                            <option value="master">Master's Degree</option>
+                            <option value="doctorate">Doctorate</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="onlineEducationCourse" class="form-label">Course</label>
+                        <input type="text" value="online_education" class="form-control"
+                            id="onlineEducationCourse" name="course" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #fe6311; color: #fff;">Update</button>
+        </div>
+        <a href="/courseDisplay" class="btn btn-info">Back</a>
+    </form>
+
+
+</div>
+
+<%- include('../footer.ejs') %>

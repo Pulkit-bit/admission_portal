@@ -1,0 +1,80 @@
+
+<%- include('./links.ejs') %>
+
+
+
+<div class="container" style="display: flex;justify-content: center;align-items: center;height: 80vh;">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                        <img src="<%= i.url %>" alt="Profile Image" class="img-fluid rounded-circle mb-3" style="width: 20%;">
+                    <h5 class="card-title mb-2">Name: <%= n %></h5>
+                    <p class="card-text mb-4">Email: <%= e %></p>
+                    <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#updateprofile">Update Profile</button>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ChangePassword">Change Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateProfile" tabindex="-1" aria-labelledby="updateProfileLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateProfileLabel">Profile Update</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/updateProfile" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" value="<%= n %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" value="<%= e %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Profile Image</label>
+                            <input type="file" id="image" name="image" class="form-control" value="<%= i.url %>">
+                            <img src="<%= i.url %>" alt="Current Image" class="img-thumbnail mt-2" width="100">
+                        </div>
+                        <button type="submit" class="btn btn-success">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ChangePassword" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordLabel">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/changePassword" method="post">
+                        <div class="mb-3">
+                            <label for="op" class="form-label">Old Password</label>
+                            <input type="password" id="op" name="op" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="np" class="form-label">New Password</label>
+                            <input type="password" id="np" name="np" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cp" class="form-label">Confirm Password</label>
+                            <input type="password" id="cp" name="cp" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+

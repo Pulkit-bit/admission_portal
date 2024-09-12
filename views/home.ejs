@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Include AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/home.css" />
+</head>
+
+<body>
+    <!-- Section Start -->
+    <section id="dashboard">
+        <div style="position: relative">
+            <%- include('header') %>
+                <%- include('./videspart.ejs') %>
+        </div>
+
+        <!-- Success Section -->
+        <div class="success">
+            <div class="content text-center my-2">
+                <h5 class="text-fe6311">Guaranteed Success</h5>
+                <h3 class="fw-bold lh-base fs-2">What We Offer</h3>
+                <p>Teachzy offers students the best education and entertainment opportunities available in the area. We
+                    are glad to take care of every student and university entrant.</p>
+            </div>
+            <div class="container mb-5">
+                <div class="row justify-content-around">
+                    <!-- Card 1 -->
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/002/563/640/non_2x/teach-school-and-education-online-learning-graduation-computer-line-style-icon-free-vector.jpg"
+                                        class="card-img-top" style="width: 30%" alt="Online Education" />
+                                    <h5>Online Education</h5>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-card-content">
+                                        <h5>Online Education</h5>
+                                        <p>Teachzy provides online education services with all learning materials and
+                                            lectures available to you.</p>
+                                        <!-- <button data-bs-toggle="modal" onclick="showOnlineEducationModal()"type="button" class="btn" style="background-color: #fe6311; color: #fff"  >
+                                            Register
+                                          </button> -->
+
+                                        <% if (online_education) {  %>
+                                        <a href="/courseDisplay" class="btn btn-primary">Display Course</a>
+                                        <% }else{ %>
+                
+                                        <button data-bs-toggle="modal" onclick="showOnlineEducationModal()" type="button" class="btn" style="background-color: #fe6311; color: #fff"  >
+                                            Register
+                                        </button>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/002/563/640/non_2x/teach-school-and-education-online-learning-graduation-computer-line-style-icon-free-vector.jpg"
+                                        class="card-img-top" style="width: 30%" alt="Programs & Courses" />
+                                    <h5>Programs & Courses</h5>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-card-content">
+                                        <h5>Programs & Courses</h5>
+                                        <p>We offer a wide range of courses and programs that encompass many knowledge
+                                            spheres.</p>
+                                        <button data-bs-toggle="modal" onclick="showProgramCourseModal()"type="button" class="btn" style="background-color: #fe6311; color: #fff"  >
+                                            Register
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-around">
+                    <!-- Card 3 -->
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="https://img.freepik.com/premium-vector/science-campus-icon-outline-vector-college-education-school-building_98396-54419.jpg?w=740"
+                                        class="card-img-top" style="width: 30%" alt="Campus Events" />
+                                    <h5>Campus Events</h5>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-card-content">
+                                        <h5>Campus Events</h5>
+                                        <p>Our campus is the hub of a talented and diverse student community that turns
+                                            opportunities into success.</p>
+                                        <button data-bs-toggle="modal" onclick="showDisplayCourseModal()"type="button" class="btn" style="background-color: #fe6311; color: #fff"  >
+                                            Register
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarePlRh1xYMJLJQRdemyydMkqNI4D_UumOcws1sHlK1HjzSnE7qNPgcs1f13A_BU9cEI&usqp=CAU"
+                                        class="card-img-top" style="width: 30%" alt="Sports & Games" />
+                                    <h5>Sports & Games</h5>
+                                </div>
+                                <div class="flip-card-back">
+                                    <div class="flip-card-content">
+                                        <h5>Sports & Games</h5>
+                                        <p>We offer a wide range of sports and games to keep students active and
+                                            engaged.</p>
+                                            <button data-bs-toggle="modal" onclick="showSprtGamesModal()"type="button" class="btn" style="background-color: #fe6311; color: #fff"  >
+                                                Register
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Membership Section -->
+        <div class="membership">
+            <div class="content text-center my-2">
+                <h3 class="fw-bold lh-base fs-2">Memberships</h3>
+            </div>
+            <div class="elementor-background-overlay mb-3">
+                <div class="container">
+                    <div class="grid-container">
+                        <!-- Membership Images -->
+                        <div class="grid-item text-center" data-aos="zoom-in-down" data-aos-duration="700">
+                            <img src="/image/member1.jpg" class="img-fluid" alt="Member 1" />
+                        </div>
+                        <div class="grid-item" data-aos="zoom-in-up" data-aos-duration="700">
+                            <img src="/image/member2.jpg" class="img-fluid" alt="Member 2" />
+                        </div>
+                        <div class="grid-item" data-aos="zoom-in-down" data-aos-duration="700">
+                            <img src="/image/member3.jpg" class="img-fluid" alt="Member 3" />
+                        </div>
+                        <div class="grid-item" data-aos="zoom-in-up" data-aos-duration="700">
+                            <img src="/image/member4.jpg" class="img-fluid" alt="Member 4" />
+                        </div>
+                        <div class="grid-item" data-aos="zoom-in-down" data-aos-duration="700">
+                            <img src="/image/member5.jpg" class="img-fluid" alt="Member 5" />
+                        </div>
+                        <div class="grid-item" data-aos="zoom-in-up" data-aos-duration="700">
+                            <img src="/image/member6.jpg" class="img-fluid" alt="Member 6" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Life @SNS Section -->
+        <div class="life my-5">
+            <div class="elementor-background-overlay mb-3">
+                <div class="container">
+                    <h1 class="my-5 text-white fw-bold" data-aos="fade-left" data-aos-duration="400">Life @SNS</h1>
+                    <p class="text-light fs-4">Connect with MKSD friends and share your experience with us. For a better
+                        experience, feel free to add your name in the comments.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials py-4">
+            <div class="elementor-background-overlay mb-3">
+                <div class="container px-5">
+                    <div class="content text-center mb-4">
+                        <h3 class="fw-bold lh-base fs-2">Testimonials</h3>
+                    </div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators" style="bottom: -40px">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <div class="image mb-3">
+                                        <img src="/image/sunil_panchmani.JPG" class="d-block rounded-circle"
+                                            alt="Sunil Pal" style="height: 150px; width: 150px" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="text mb-3">
+                                            <p>
+                                                The pedagogy, blend of technology in the education system, and the zeal
+                                                to bring forth the best amongst the students has made the institute
+                                                stand amongst the best not only in the city but also in the country. The
+                                                efforts of students in creating cognizance in society regarding various
+                                                social issues related to protecting the environment, conserving
+                                                heritage, and other relevant issues is exemplary.
+                                            </p>
+                                        </div>
+                                        <div class="info">
+                                            <h6>Sunil Pal</h6>
+                                            <span>Software Developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <div class="image mb-3">
+                                        <img src="/image/sunil im.jpg" class="d-block rounded-circle" alt="Sunil Pal"
+                                            style="height: 150px; width: 150px" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="text mb-3">
+                                            <p>
+                                                The pedagogy, blend of technology in the education system, and the zeal
+                                                to bring forth the best amongst the students has made the institute
+                                                stand amongst the best not only in the city but also in the country. The
+                                                efforts of students in creating cognizance in society regarding various
+                                                social issues related to protecting the environment, conserving
+                                                heritage, and other relevant issues is exemplary.
+                                            </p>
+                                        </div>
+                                        <div class="info">
+                                            <h6>Sunil Pal</h6>
+                                            <span>Software Developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <div class="image mb-3">
+                                        <img src="/image/sunil_panchmani.JPG" class="d-block rounded-circle"
+                                            alt="Sunil Pal" style="height: 150px; width: 150px" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="text mb-3">
+                                            <p>
+                                                The pedagogy, blend of technology in the education system, and the zeal
+                                                to bring forth the best amongst the students has made the institute
+                                                stand amongst the best not only in the city but also in the country. The
+                                                efforts of students in creating cognizance in society regarding various
+                                                social issues related to protecting the environment, conserving
+                                                heritage, and other relevant issues is exemplary.
+                                            </p>
+                                        </div>
+                                        <div class="info">
+                                            <h6>Sunil Pal</h6>
+                                            <span>Software Developer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="gallery my-5">
+            <div class="content">
+                <h3 class="fw-bold lh-base fs-2 text-center">Gallery</h3>
+            </div>
+            <div class="elementor-background-overlay mb-3">
+                <div class="container flex-container">
+                    <div class="gallery-item geeks">
+                        <img src="/image/photogallery1.jpg" class="img-fluid" alt="Image 1" />
+                        <div class="middle">
+                            <div class="text">Know More</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item geeks">
+                        <img src="/image/photogallery2.jpg" class="img-fluid" alt="Image 2" />
+                        <div class="middle">
+                            <div class="text">Know More</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item geeks">
+                        <img src="/image/photogallery3.jpg" class="img-fluid" alt="Image 3" />
+                        <div class="middle">
+                            <div class="text">Know More</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item geeks">
+                        <img src="/image/photogallery4.jpg" class="img-fluid" alt="Image 4" />
+                        <div class="middle">
+                            <div class="text">Know More</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item geeks">
+                        <img src="/image/photogallery5.jpg" class="img-fluid" alt="Image 5" />
+                        <div class="middle">
+                            <div class="text">Know More</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item geeks">
+                        <img src="/image/photogallery6.jpg" class="img-fluid" alt="Image 6" />
+                        <div class="middle">
+                            <div class="text">Know More</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('footer') %>
+        <!-- Modal for Online Education -->
+        <div class="modal fade" id="online_education" tabindex="-1" aria-labelledby="online_educationLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="online_educationLabel">Online Education Platform</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/course_insert" method="post">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="onlineEducationName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="onlineEducationName"
+                                                name="name" value="<%= n %>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="onlineEducationEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="onlineEducationEmail"
+                                                name="email" value="<%= e %>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="onlineEducationPhone" class="form-label">Phone
+                                                Number</label>
+                                            <input type="tel" class="form-control" id="onlineEducationPhone"
+                                                name="phone" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="onlineEducationDob" class="form-label">DOB</label>
+                                            <input type="date" class="form-control" id="onlineEducationDob"
+                                                name="dob" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="onlineEducationAddress" class="form-label">Address</label>
+                                            <textarea class="form-control" id="onlineEducationAddress"
+                                                name="address" rows="2" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Gender</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="onlineEducationGenderMale" value="male" required>
+                                                    <label class="form-check-label"
+                                                        for="onlineEducationGenderMale">Male</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="onlineEducationGenderFemale" value="female" required>
+                                                    <label class="form-check-label"
+                                                        for="onlineEducationGenderFemale">Female</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="onlineEducationGenderOther" value="other" required>
+                                                    <label class="form-check-label"
+                                                        for="onlineEducationGenderOther">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="onlineEducationEducation"
+                                                class="form-label">Education</label>
+                                            <select class="form-select" id="onlineEducationEducation"
+                                                name="education" required>
+                                                <option value="" selected disabled>Select your education level
+                                                </option>
+                                                <option value="high_school">High School</option>
+                                                <option value="associate">Associate's Degree</option>
+                                                <option value="bachelor">Bachelor's Degree</option>
+                                                <option value="master">Master's Degree</option>
+                                                <option value="doctorate">Doctorate</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="onlineEducationCourse" class="form-label">Course</label>
+                                            <input type="text" value="online_education" class="form-control"
+                                                id="onlineEducationCourse" name="course" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="background-color: #fe6311; color: #fff;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Programs & Courses -->
+        <div class="modal fade" id="program_course" tabindex="-1" aria-labelledby="program_courseLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="program_courseLabel">Programs & Courses</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="programCourseName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="programCourseName"
+                                                name="name" value="" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="programCourseEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="programCourseEmail"
+                                                name="email" value="" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="programCoursePhone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="programCoursePhone"
+                                                name="phone" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="programCourseDob" class="form-label">DOB</label>
+                                            <input type="date" class="form-control" id="programCourseDob" name="dob"
+                                                required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="programCourseAddress" class="form-label">Address</label>
+                                            <textarea class="form-control" id="programCourseAddress" name="address"
+                                                rows="2" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Gender</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="programCourseGenderMale" value="male" required>
+                                                    <label class="form-check-label"
+                                                        for="programCourseGenderMale">Male</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="programCourseGenderFemale" value="female" required>
+                                                    <label class="form-check-label"
+                                                        for="programCourseGenderFemale">Female</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="programCourseGenderOther" value="other" required>
+                                                    <label class="form-check-label"
+                                                        for="programCourseGenderOther">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="programCourseEducation" class="form-label">Education</label>
+                                            <select class="form-select" id="programCourseEducation" name="education"
+                                                required>
+                                                <option value="" selected disabled>Select your education level
+                                                </option>
+                                                <option value="high_school">High School</option>
+                                                <option value="associate">Associate's Degree</option>
+                                                <option value="bachelor">Bachelor's Degree</option>
+                                                <option value="master">Master's Degree</option>
+                                                <option value="doctorate">Doctorate</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="programCourseCourse" class="form-label">Course</label>
+                                            <input type="text" value="program_course" class="form-control"
+                                                id="programCourseCourse" name="course" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="background-color: #fe6311; color: #fff;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Campus Events -->
+        <div class="modal fade" id="campus_event" tabindex="-1" aria-labelledby="campus_eventLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="campus_eventLabel">Campus Events</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="campuseventName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="campuseventName" name="name"
+                                                value="" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="campuseventEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="campuseventEmail"
+                                                name="email" value="" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="campuseventPhone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="campuseventPhone"
+                                                name="phone" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="campuseventDob" class="form-label">DOB</label>
+                                            <input type="date" class="form-control" id="campuseventDob" name="dob"
+                                                required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="campusEventAddress" class="form-label">Address</label>
+                                            <textarea class="form-control" id="campusEventAddress" name="address"
+                                                rows="2" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Gender</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="campusEventGenderMale" value="male" required>
+                                                    <label class="form-check-label"
+                                                        for="campusEventGenderMale">Male</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="campusEventGenderFemale" value="female" required>
+                                                    <label class="form-check-label"
+                                                        for="campusEventGenderFemale">Female</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="campusEventGenderOther" value="other" required>
+                                                    <label class="form-check-label"
+                                                        for="campusEventGenderOther">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="campusEventEducation" class="form-label">Education</label>
+                                            <select class="form-select" id="campusEventEducation" name="education"
+                                                required>
+                                                <option value="" selected disabled>Select your education level
+                                                </option>
+                                                <option value="high_school">High School</option>
+                                                <option value="associate">Associate's Degree</option>
+                                                <option value="bachelor">Bachelor's Degree</option>
+                                                <option value="master">Master's Degree</option>
+                                                <option value="doctorate">Doctorate</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="campusEventCourse" class="form-label">Course</label>
+                                            <input type="text" value="web_development" class="form-control"
+                                                id="campusEventCourse" name="course" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="background-color: #fe6311; color: #fff;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for Sports & Games -->
+        <div class="modal fade" id="sport_game" tabindex="-1" aria-labelledby="sport_gameLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sport_gameLabel">Sports & Games</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="sportgameName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="sportgameName" name="name"
+                                                value="" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sportgameEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="sportgameEmail"
+                                                name="email" value="" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sportgamePhone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="sportgamePhone" name="phone"
+                                                required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sportgameDob" class="form-label">DOB</label>
+                                            <input type="date" class="form-control" id="sportgameDob" name="dob"
+                                                required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sportGameAddress" class="form-label">Address</label>
+                                            <textarea class="form-control" id="sportGameAddress" name="address"
+                                                rows="2" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Gender</label>
+                                            <div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="sportGameGenderMale" value="male" required>
+                                                    <label class="form-check-label"
+                                                        for="sportGameGenderMale">Male</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="sportGameGenderFemale" value="female" required>
+                                                    <label class="form-check-label"
+                                                        for="sportGameGenderFemale">Female</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="sportGameGenderOther" value="other" required>
+                                                    <label class="form-check-label"
+                                                        for="sportGameGenderOther">Other</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sportGameEducation" class="form-label">Education</label>
+                                            <select class="form-select" id="sportGameEducation" name="education"
+                                                required>
+                                                <option value="" selected disabled>Select your education level
+                                                </option>
+                                                <option value="high_school">High School</option>
+                                                <option value="associate">Associate's Degree</option>
+                                                <option value="bachelor">Bachelor's Degree</option>
+                                                <option value="master">Master's Degree</option>
+                                                <option value="doctorate">Doctorate</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="sportGameCourse" class="form-label">Course</label>
+                                            <input type="text" value="digital_marketing" class="form-control"
+                                                id="sportGameCourse" name="course" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="background-color: #fe6311; color: #fff;">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for School Admission Offer -->
+        <div class="modal fade" id="admissionOfferModal" tabindex="-1" aria-labelledby="admissionOfferModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="admissionOfferModalLabel">School Admission Offer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img src="./image/admission_open6.png" alt="School Logo" class="img-fluid mb-3" />
+                        </div>
+                        <p>
+                            Congratulations! We are pleased to offer you admission to
+                            <span class="fw-bold" style="color: #fe6311;">PN INFOSYS School</span>
+                            for the upcoming academic year.
+                        </p>
+                        <p>
+                            This offer is valid until 30-02-2024. Please review the admission details and
+                            requirements provided in the attached documents.
+                        </p>
+                        <p>
+                            If you have any questions or need further assistance, please feel free to contact us at
+                            <a href="tel:9516667268"
+                                style="text-decoration: none; color: #fd955e; font-weight: bold;">9516667268</a>.
+                        </p>
+                        <p>We look forward to welcoming you to our school community!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="/" target="_blank" class="btn"
+                            style="background-color: #fe6311; color: #fff; text-decoration: none;">Accept Offer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <button id="scrollToTop" class="btn">
+        <i class="fa fa-angle-double-up" style="font-size: 14px; padding: 8px"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Trigger modal on page load
+        window.onload = function () {
+            var myModal = new bootstrap.Modal(
+                document.getElementById("admissionOfferModal")
+            );
+            myModal.show();
+        };
+        AOS.init();
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth", // Enable smooth scrolling behavior
+            });
+        }
+
+        // Add event listener to the scroll icon after the DOM has loaded
+        document.addEventListener("DOMContentLoaded", function () {
+            document
+                .getElementById("scrollToTop")
+                .addEventListener("click", scrollToTop);
+        });
+
+        function showOnlineEducationModal() {
+            var myOnlineEducationModal = new bootstrap.Modal(document.getElementById('online_education'));
+            myOnlineEducationModal.show()
+        };
+
+
+        function showProgramCourseModal() {
+            var myshowProgramCoureseModal = new bootstrap.Modal(document.getElementById('program_course'));
+            myshowProgramCoureseModal.show();
+        }
+
+        function showDisplayCourseModal() {
+            var myDisplayCoureseModal = new bootstrap.Modal(document.getElementById('campus_event'));
+            myDisplayCoureseModal.show();
+        }
+
+        function showSprtGamesModal() {
+            var mySportGamesModal = new bootstrap.Modal(document.getElementById('sport_game'));
+            mySportGamesModal.show();
+        }
+
+    </script>
+</body>
+
+</html>
