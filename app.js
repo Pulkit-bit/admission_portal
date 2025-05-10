@@ -10,10 +10,10 @@ const connectDB = require('./Db/connectDB')
 const session = require('express-session')
 const flash = require('connect-flash')
 const fileupload = require('express-fileupload')
-const cookiParaser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 
 //token get cookies
-app.use(cookiParaser())
+app.use(cookieParser())
 
 app.use(fileupload({
     useTempFiles : true,
